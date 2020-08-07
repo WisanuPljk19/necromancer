@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+public class Necro{
+    public class func print(){
+        print("Necro")
+    }
+}

@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+public class DateUtils {
+    public class func print(){
+        print("Necro")
+    }
+}
