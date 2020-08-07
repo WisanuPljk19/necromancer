@@ -6,7 +6,7 @@ final class NecromancerTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual(Necromancer().text, "Hello, World!")
+//        XCTAssertEqual(Necromancer().text, "Hello, World!")
     }
 
     static var allTests = [
