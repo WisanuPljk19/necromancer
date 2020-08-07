@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum PatternDateFormatter: String {
+public enum PatternDateFormatter: String {
     case dmy = "dd/MM/yyyy"
     case timestamp = "yyyy-MM-dd'T'HH:mm:ss"
     case timestampDisplay = "dd/MM/yyyy HH:mm"
