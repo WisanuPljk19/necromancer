@@ -8,6 +8,11 @@
 import XCTest
 @testable import Necromancer
 
+struct UserTest: Codable {
+    var name: String?
+    var age: Int?
+}
+
 final class ObjectUtilsTests: XCTestCase {
 
     func testObjectIsNil(){
@@ -24,5 +29,19 @@ final class ObjectUtilsTests: XCTestCase {
         XCTAssertTrue(ObjectUtils.isNotNil(any: str), "input `Hello Swift` must be true")
         let double = 25.62
         XCTAssertTrue(ObjectUtils.isNotNil(any: double), "input 25.62 must be true")
+    }
+    
+    func testEncodeObjectToJson(){
+        let userTest = UserTest(name: "Tony", age: 37)
+        let jsonObject = ObjectUtils.encodeJson(from: userTest)
+        XCTAssertNotNil(jsonObject, "input Codable must not be nil")
+        XCTAssertTrue(userTest.name == (jsonObject?["name"] as? String), "name is equal")
+    }
+    
+    func testDecodeJsonToObject(){
+        let userTest = UserTest(name: "Tony", age: 37)
+        XCTAssertNoThrow(try userTest.getData())
+        var userDecode = ObjectUtils.decodeJson(from: UserTest.self, data: try! userTest.getData())
+        XCTAssertTrue(userTest.name == userDecode?.name, "name is equal")
     }
 }

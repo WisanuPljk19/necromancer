@@ -152,6 +152,23 @@ public class StringUtils {
         return predicate.evaluate(with: value)
     }
     
+    /**
+    
+    - Description
+    Validate value of `UITextField` with `UIKeyboardType`, `limit`, `isRequire`
+
+    - Parameters:
+       - value: value of `UITextField`
+       - keyboardType: `UIKeyboardType` of `UITextField` ex. emailAddress, decimal
+       - limit: maximum of value
+       - isRequire: if this `UITextField` must `NotNil` or `Empty` input is true
+    
+    - Returns:
+       - Bool: return `true` value is valid
+    
+    - Author:
+    wisanu.pljk
+    */
     public class func validateTextField(from value: String?, with keyboardType: UIKeyboardType,
                                         limit: Int, isRequire: Bool) -> Bool{
 
