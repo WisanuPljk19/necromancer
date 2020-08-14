@@ -56,7 +56,7 @@ public enum DateFormat {
         case .timestampDisplay:
             return "dd/MM/yyyy HH:mm"
         case .fullDateTime:
-            return "EEE, d MMM yyyy HH:mm:ss Z"
+            return "EEE, d MMMM yyyy HH:mm:ss Z"
         case .onlyTime:
             return "HH:mm:ss"
         case .onlyTimeWithOutSec:
