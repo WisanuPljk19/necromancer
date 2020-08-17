@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
+        "state": {
+          "branch": null,
+          "revision": "becd9a729a37bdbef5bc39dc3c702b99f9e3d046",
+          "version": "5.2.2"
+        }
+      },
+      {
+        "package": "SwiftyBeaver",
+        "repositoryURL": "https://github.com/SwiftyBeaver/SwiftyBeaver.git",
+        "state": {
+          "branch": null,
+          "revision": "e0fb3a74cb993d7dcf1e56734cdc98ad6e6d8176",
+          "version": "1.9.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
