@@ -41,7 +41,7 @@ final class ObjectUtilsTests: XCTestCase {
     func testDecodeJsonToObject(){
         let userTest = UserTest(name: "Tony", age: 37)
         XCTAssertNoThrow(try userTest.getData())
-        var userDecode = ObjectUtils.decodeJson(from: UserTest.self, data: try! userTest.getData())
+        let userDecode = ObjectUtils.decodeJson(from: UserTest.self, data: try! userTest.getData())
         XCTAssertTrue(userTest.name == userDecode?.name, "name is equal")
     }
 }

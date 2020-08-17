@@ -164,6 +164,51 @@ final class DateTimeUtlsTests: XCTestCase {
         XCTAssertTrue(DateTimeUtils.isSame(_1st: _1stDate!, _2nd: _2ndDate!, components: .day))
     }
     
+    func testConvertADyearsToBEYears(){
+        let adYears = 1993
+        let beYears = DateTimeUtils.convertADYearsToBEYears(adYears)
+        XCTAssertNotNil(beYears, "beYears must not be nil")
+        XCTAssertTrue(beYears == 2536, "1993 + 543 is 2536")
+    }
+    
+    func testConvertBEYearsToADYears(){
+        let beYears = 2536
+        let adYears = DateTimeUtils.convertBEYearsToADYears(beYears)
+        XCTAssertNotNil(adYears, "beYears must not be nil")
+        XCTAssertTrue(adYears == 1993, "2536 - 543 is 1993")
+    }
+    
+    func testCountOfWeekInMonth(){
+        let countWeekFirstSunday = DateTimeUtils.countOfWeeksInMonth(from: 2020,
+                                                              month: .mar,
+                                                              identifier: .gregorian,
+                                                              firstWeekDay: .sunday)
+        XCTAssertTrue(countWeekFirstSunday == 5, "2020-03 start in sunday count of week must be equal 5")
+        let countWeekFirstMonday = DateTimeUtils.countOfWeeksInMonth(from: 2020,
+                                                              month: .mar,
+                                                              identifier: .gregorian,
+                                                              firstWeekDay: .monday)
+        XCTAssertTrue(countWeekFirstMonday == 6, "2020-03 start in monday count of week must be equal 6")
+        
+        let countWeekFirstSundayNumber = DateTimeUtils.countOfWeeksInMonth(from: 2020,
+                                                              month: 3,
+                                                              identifier: .gregorian,
+                                                              firstWeekDay: 1)
+        XCTAssertTrue(countWeekFirstSundayNumber == 5, "2020-03 start in sunday count of week must be equal 5")
+        let countWeekFirstMondayNumber = DateTimeUtils.countOfWeeksInMonth(from: 2020,
+                                                              month: 3,
+                                                              identifier: .gregorian,
+                                                              firstWeekDay: 2)
+        XCTAssertTrue(countWeekFirstMondayNumber == 6, "2020-03 start in monday count of week must be equal 6")
+    }
+    
+    func testCountOfDayInMonth(){
+        let countDayInFeb2020 = DateTimeUtils.countOfDayInMonth(from: 2020, month: .feb, identifier: .gregorian)
+        XCTAssertTrue(countDayInFeb2020 == 29, "countOfDayInMonth of 2020-02 must be equal 29")
+        let countDayInFeb2019 = DateTimeUtils.countOfDayInMonth(from: 2019, month: .feb, identifier: .gregorian)
+        XCTAssertTrue(countDayInFeb2019 == 28, "countOfDayInMonth of 2019-02 must be equal 28")
+    }
+    
     static var allTests = [
         ("testConvertDateToString", testConvertDateToString),
         ("testConvertStringToDate", testConvertStringToDate),
