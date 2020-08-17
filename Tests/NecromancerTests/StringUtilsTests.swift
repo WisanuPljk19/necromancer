@@ -179,4 +179,35 @@ final class StringUtilsTests: XCTestCase {
                                                     isRequire: true),
                       "input string phone and keyboard type .namePhonePad must be return true because regEx = .none")
     }
+    
+    func testIsCompose(){
+        let stringEn = "Hello Swift"
+        XCTAssertFalse(StringUtils.isCompose(from: nil, with: "Sw"), "string nil must be return nil")
+        XCTAssertTrue(StringUtils.isCompose(from: stringEn, with: "Sw"),
+                      "string `Hello Swift` and check `Sw` must be return true")
+        XCTAssertFalse(StringUtils.isCompose(from: stringEn, with: "sw"),
+        "string `Hello Swift` and check `sw` must be return false")
+        
+        let stringTh = "สวัสดี สวิฟท์"
+        XCTAssertFalse(StringUtils.isCompose(from: nil, with: "สวิ"), "string nil must be return nil")
+        XCTAssertTrue(StringUtils.isCompose(from: stringTh, with: "สวิ"),
+                      "string `สวัสดี สวิฟท์` and check `สวิ` must be return true")
+        XCTAssertFalse(StringUtils.isCompose(from: stringTh, with: "สวส"),
+        "string `สวัสดี สวิฟท์` and check `สวส` must be return false")
+    }
+    
+    func testSubstring(){
+        let str = "Hello Work My Swift Language"
+        XCTAssertNil(StringUtils.substring(from: str, beginIndex: 500, endIndex: 5000))
+        XCTAssertNotNil(StringUtils.substring(from: str, beginIndex: 0, endIndex: 5))
+        XCTAssertTrue(StringUtils.substring(from: str, beginIndex: 0, endIndex: 5) == "Hello")
+        
+        XCTAssertNil(StringUtils.substring(from: str, beginIndex: -5))
+        XCTAssertNotNil(StringUtils.substring(from: str, beginIndex: 0))
+        XCTAssertTrue(StringUtils.substring(from: str, beginIndex: 0) == str)
+
+        XCTAssertNil(StringUtils.substring(from: str, endIndex: 5000))
+        XCTAssertNotNil(StringUtils.substring(from: str, endIndex: 5))
+        XCTAssertTrue(StringUtils.substring(from: str, endIndex: 5) == "Hello")
+    }
 }
