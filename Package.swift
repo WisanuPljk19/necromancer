@@ -16,7 +16,7 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         .package(name: "SwiftyBeaver", url: "https://github.com/SwiftyBeaver/SwiftyBeaver.git", from: "1.8.4"),
-        .package(name: "Alamofire", url: "https://github.com/Alamofire/Alamofire.git", from: "5.0.0")
+        .package(name: "Alamofire", url: "https://github.com/Alamofire/Alamofire.git", from: "5.0.1")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.

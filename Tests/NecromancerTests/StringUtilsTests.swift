@@ -209,11 +209,5 @@ final class StringUtilsTests: XCTestCase {
         XCTAssertNil(StringUtils.substring(from: str, endIndex: 5000))
         XCTAssertNotNil(StringUtils.substring(from: str, endIndex: 5))
         XCTAssertTrue(StringUtils.substring(from: str, endIndex: 5) == "Hello")
-        
-        Log.debug(str)
-        Log.error(str)
-        Log.info(str)
-        Log.warning(str)
-        
     }
 }
