@@ -56,6 +56,10 @@ final class DateTimeUtlsTests: XCTestCase {
                                              dateFormat: .shortDate,
                                              locale: LocaleDateTime.en,
                                              timeZone: .current), "Match pattern dmy must not be nil")
+        XCTAssertNotNil(DateTimeUtils.toDate(from: "2000-10-20T00:00:00.000+07:00",
+                                             dateFormat: .isoDate,
+                                             locale: LocaleDateTime.en,
+                                             timeZone: TimeZoneDateTime.bangkok), "Match pattern isoDate must not be nil")
     }
     
     func testInitialDateFromComponent(){

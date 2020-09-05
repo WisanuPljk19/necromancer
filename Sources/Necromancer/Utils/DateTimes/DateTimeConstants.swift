@@ -46,6 +46,7 @@ public enum DateFormat {
     case fullShortDate
     case shortDate
     case shortMonthAndShortYear
+    case isoDate
     
     var format: String {
         switch self {
@@ -69,6 +70,8 @@ public enum DateFormat {
             return "d MMMM yyyy"
         case .shortMonthAndShortYear:
             return "MMM yy"
+        case .isoDate:
+            return "yyyy-MM-dd'T'HH:mm:ss.SSSXXX"
         }
     }
 }
