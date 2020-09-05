@@ -77,17 +77,17 @@ public enum DateFormat {
 }
 
 public enum TimeZoneDateTime {
-    static let utc = TimeZone(abbreviation: "UTC")!
-    static let bangkok = TimeZone(identifier: "Asia/Bangkok")!
-    static let london = TimeZone(identifier: "Europe/London")!
-    static let tokyo = TimeZone(identifier: "Asia/Tokyo")!
-    static let newYork = TimeZone(identifier: "America/New_York")!
-    static let losAngeles = TimeZone(identifier: "America/Los_Angeles")!
+    public static let utc = TimeZone(abbreviation: "UTC")!
+    public static let bangkok = TimeZone(identifier: "Asia/Bangkok")!
+    public static let london = TimeZone(identifier: "Europe/London")!
+    public static let tokyo = TimeZone(identifier: "Asia/Tokyo")!
+    public static let newYork = TimeZone(identifier: "America/New_York")!
+    public static let losAngeles = TimeZone(identifier: "America/Los_Angeles")!
 }
 
 public enum LocaleDateTime {
-    static let th = Locale(identifier: "th_TH")
-    static let en = Locale(identifier: "en_US_POSIX")
+    public static let th = Locale(identifier: "th_TH")
+    public static let en = Locale(identifier: "en_US_POSIX")
 }
 
 public enum Day: Int {
