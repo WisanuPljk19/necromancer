@@ -190,10 +190,6 @@ public class StringUtils {
                 return .number
             case .decimalPad:
                 return .decimal
-            case .emailAddress:
-                return .email
-            case .phonePad:
-                return .mobile
             default:
                 return .none
             }
