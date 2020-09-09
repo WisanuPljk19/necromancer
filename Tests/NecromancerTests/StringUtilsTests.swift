@@ -210,4 +210,11 @@ final class StringUtilsTests: XCTestCase {
         XCTAssertNotNil(StringUtils.substring(from: str, endIndex: 5))
         XCTAssertTrue(StringUtils.substring(from: str, endIndex: 5) == "Hello")
     }
+    
+    func testPetternFormatString(){
+        let idCard = "1100765298123"
+        print(StringUtils.applyPatternOnNumbers(idCard, with: "#-####-#####-##-#", and: "#"))
+        let accountNo = "0010976209"
+        print(StringUtils.applyPatternOnNumbers(accountNo, with: "###-#-######", and: "#"))
+    }
 }

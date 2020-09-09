@@ -329,6 +329,21 @@ public class StringUtils {
         
         return String(string![..<string!.index(from: endIndex)])
     }
+    
+    public class func applyPatternOnNumbers(_ string: String?, with pattern: String, and replacmentCharacter: Character) -> String {
+        guard let string = string else {
+            return ""
+        }
+        var pureNumber = string.replacingOccurrences( of: "[^0-9]", with: "", options: .regularExpression)
+        for index in 0 ..< pattern.count {
+            guard index < pureNumber.count else { return pureNumber }
+            let stringIndex = String.Index(encodedOffset: index)
+            let patternCharacter = pattern[stringIndex]
+            guard patternCharacter != replacmentCharacter else { continue }
+            pureNumber.insert(patternCharacter, at: stringIndex)
+        }
+        return pureNumber
+    }
 }
 
 extension String{
