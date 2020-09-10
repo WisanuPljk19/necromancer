@@ -10,8 +10,11 @@ import UIKit
 
 public class ImageUtils {
     
-    public class func reduce(image: UIImage, with quality: CGFloat) -> Data? {
-        return image.jpegData(compressionQuality: quality)
+    public class func reduce(image: UIImage, with quality: CGFloat) -> UIImage? {
+        guard let data = image.jpegData(compressionQuality: quality) else {
+            return nil
+        }
+        return UIImage(data: data)
     }
     
     public class func toImage(from base64String: String?) -> UIImage? {
