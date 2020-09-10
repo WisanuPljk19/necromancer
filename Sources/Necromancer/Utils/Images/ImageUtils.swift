@@ -9,6 +9,11 @@ import Foundation
 import UIKit
 
 public class ImageUtils {
+    
+    public class func reduce(image: UIImage, with jpegQuality: JPEGQuality) -> Data? {
+        return image.jpegData(compressionQuality: jpegQuality.value)
+    }
+    
     public class func toImage(from base64String: String?) -> UIImage? {
         guard  let base64 = base64String else {
             return nil
