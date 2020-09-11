@@ -11,10 +11,17 @@ import UIKit
 public class ImageUtils {
     
     public class func reduce(image: UIImage, with quality: CGFloat) -> UIImage? {
-        guard let data = image.jpegData(compressionQuality: quality) else {
+        let width = image.size.width * quality
+        let height = image.size.height * quality
+        
+        UIGraphicsBeginImageContext(CGSize(width: width, height: height))
+        image.draw(in: CGRect(x: 0, y: 0, width: width, height: height))
+        let imageReduce = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        guard imageReduce != nil, let dataImage = imageReduce!.jpegData(compressionQuality: quality) else {
             return nil
         }
-        return UIImage(data: data)
+        return UIImage(data: dataImage)
     }
     
     public class func toImage(from base64String: String?) -> UIImage? {
