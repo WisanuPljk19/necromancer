@@ -344,6 +344,45 @@ public class StringUtils {
         }
         return pureNumber
     }
+    
+    public class func concat(from strings: [String?], separator: String) -> String {
+        var stringsFilter = strings
+            .filter{ isNotNilOrEmpty(from: $0) && ($0?.trimmingCharacters(in: .whitespacesAndNewlines) != "")}
+            .map{ $0! }
+        return stringsFilter.joined(separator: separator)
+    }
+    
+    public class func toString(from value: Int?) -> String {
+        var string = ""
+        if let value = value {
+            string = "\(value)"
+        }
+        return value
+    }
+    
+    public class func toString(from value: Double?) -> String {
+        var string = ""
+        if let value = value {
+            string = "\(value)"
+        }
+        return value
+    }
+    
+    public class func toStringWithoutEmpty(from value: Int?) -> String? {
+        var string = nil
+        if let value = value {
+            string = "\(value)"
+        }
+        return value
+    }
+    
+    public class func toStringWithoutEmpty(from value: Double?) -> String? {
+        var string = nil
+        if let value = value {
+            string = "\(value)"
+        }
+        return value
+    }
 }
 
 extension String{
