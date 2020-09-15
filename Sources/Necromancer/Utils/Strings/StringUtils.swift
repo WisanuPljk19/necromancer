@@ -346,7 +346,7 @@ public class StringUtils {
     }
     
     public class func concat(from strings: [String?], separator: String) -> String {
-        var stringsFilter = strings
+        let stringsFilter = strings
             .filter{ isNotNilOrEmpty(from: $0) && ($0?.trimmingCharacters(in: .whitespacesAndNewlines) != "")}
             .map{ $0! }
         return stringsFilter.joined(separator: separator)
@@ -357,7 +357,7 @@ public class StringUtils {
         if let value = value {
             string = "\(value)"
         }
-        return value
+        return string
     }
     
     public class func toString(from value: Double?) -> String {
@@ -365,23 +365,23 @@ public class StringUtils {
         if let value = value {
             string = "\(value)"
         }
-        return value
+        return string
     }
     
     public class func toStringWithoutEmpty(from value: Int?) -> String? {
-        var string = nil
+        var string: String?
         if let value = value {
             string = "\(value)"
         }
-        return value
+        return string
     }
     
     public class func toStringWithoutEmpty(from value: Double?) -> String? {
-        var string = nil
+        var string: String?
         if let value = value {
             string = "\(value)"
         }
-        return value
+        return string
     }
 }
 
