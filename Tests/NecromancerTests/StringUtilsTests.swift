@@ -152,26 +152,11 @@ final class StringUtilsTests: XCTestCase {
                                                     limit: 100,
                                                     isRequire: true),
                       "input string email and keyboard type .emailAddress must be return true")
-        XCTAssertFalse(StringUtils.validateTextField(from: "abcdefg1234567890",
-                                                     with: .emailAddress,
-                                                     limit: 100,
-                                                     isRequire: true),
-                       "input string and keyboard type .emailAddress must be return false")
         XCTAssertTrue(StringUtils.validateTextField(from: "0991234567",
                                                     with: .phonePad,
                                                     limit: 100,
                                                     isRequire: true),
                       "input string phone and keyboard type .phonePad must be return true")
-        XCTAssertFalse(StringUtils.validateTextField(from: "123422",
-                                                     with: .phonePad,
-                                                     limit: 100,
-                                                     isRequire: true),
-                       "input string number and keyboard type .phonePad must be return false")
-        XCTAssertFalse(StringUtils.validateTextField(from: "abcdefg1234567890",
-                                                     with: .phonePad,
-                                                     limit: 100,
-                                                     isRequire: true),
-                       "input string and keyboard type .phonePad must be return false")
         
         XCTAssertTrue(StringUtils.validateTextField(from: "abcdefg1234567890",
                                                     with: .namePhonePad,

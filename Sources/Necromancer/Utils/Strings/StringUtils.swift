@@ -383,6 +383,7 @@ public class StringUtils {
         }
         return string
     }
+    
 }
 
 extension String{
