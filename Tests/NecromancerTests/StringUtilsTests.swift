@@ -70,6 +70,12 @@ final class StringUtilsTests: XCTestCase {
     func testCheckRegEx(){
         XCTAssertTrue(StringUtils.checkRegEx(from: "email@gmail.com", with: .email),
                       "right email must be true")
+        XCTAssertTrue(StringUtils.checkRegEx(from: "email@gmail..com", with: .email),
+                      "right email must be true")
+        XCTAssertTrue(StringUtils.checkRegEx(from: "email@gmail.com", with: .email_efc5322),
+                      "right email must be true")
+        XCTAssertFalse(StringUtils.checkRegEx(from: "email@gmail..com", with: .email_efc5322),
+                      "right email must be false")
         XCTAssertFalse(StringUtils.checkRegEx(from: nil, with: .email),
                        "nil must be false")
         XCTAssertFalse(StringUtils.checkRegEx(from: "hellow this is me", with: .email),
