@@ -60,7 +60,7 @@ public class ObjectUtils {
      - Author:
      wisanu.pljk
      */
-    public class func decodeJson<T: Decodable>(from decodingType: T.Type, data: Data?) -> T? {
+    public class func decode<T: Decodable>(from decodingType: T.Type, data: Data?) -> T? {
         guard let dataGeneric = data else {
             return nil
         }
@@ -87,7 +87,7 @@ public class ObjectUtils {
     - Author:
     wisanu.pljk
     */
-    public class func encodeJson(from object: Encodable) -> [String: Any]? {
+    public class func encode(from object: Encodable) -> [String: Any]? {
         return (try? JSONSerialization.jsonObject(with: object.getData(),
                                                   options: [])).flatMap{$0 as? [String: Any]}
     }
