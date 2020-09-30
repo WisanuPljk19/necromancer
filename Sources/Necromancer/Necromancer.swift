@@ -13,7 +13,7 @@ open class Necromancer {
     public static var timeZone = TimeZone.current
     public static var identifier = Calendar.Identifier.gregorian
     
-    class func configure(timeZone: TimeZone? = nil,
+    public class func configure(timeZone: TimeZone? = nil,
                          locale: Locale? = nil,
                          identifier: Calendar.Identifier? = nil) {
         if let locale = locale {
