@@ -56,21 +56,25 @@ public class AppUtils {
             return .unknown
         }
         
-        let oldVersion = split(version: installedVersion)
-        let newVersion = split(version: appStoreVersion)
+        guard installedVersion.compare(appStoreVersion, options: .numeric) == .orderedAscending else {
+            return .unknown
+        }
         
-        guard let newVersionFirst = newVersion.first,
-              let oldVersionFirst = oldVersion.first else {
+        let installedVersions = split(version: installedVersion)
+        let appStoreVersions = split(version: appStoreVersion)
+        
+        guard let newVersionFirst = appStoreVersions.first,
+              let oldVersionFirst = installedVersions.first else {
             return .unknown
         }
         
         if newVersionFirst > oldVersionFirst {
             return .major
-        } else if newVersion.count > 1 && (oldVersion.count <= 1 || newVersion[1] > oldVersion[1]) {
+        } else if appStoreVersions.count > 1 && (installedVersions.count <= 1 || appStoreVersions[1] > installedVersions[1]) {
             return .minor
-        } else if newVersion.count > 2 && (oldVersion.count <= 2 || newVersion[2] > oldVersion[2]) {
+        } else if appStoreVersions.count > 2 && (installedVersions.count <= 2 || appStoreVersions[2] > installedVersions[2]) {
             return .patch
-        } else if newVersion.count > 3 && (oldVersion.count <= 3 || newVersion[3] > oldVersion[3]) {
+        } else if appStoreVersions.count > 3 && (installedVersions.count <= 3 || appStoreVersions[3] > installedVersions[3]) {
             return .revision
         } else {
             return .unknown
