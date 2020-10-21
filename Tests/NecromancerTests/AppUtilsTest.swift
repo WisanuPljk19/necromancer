@@ -16,6 +16,12 @@ final class AppUtilsTest: XCTestCase {
         XCTAssertTrue(Necromancer.Apps.checkVersion(with: "1.0.0", appStoreVersion: "1.1.0") == .minor)
         XCTAssertTrue(Necromancer.Apps.checkVersion(with: "1.0.0", appStoreVersion: "1.0.1") == .patch)
         XCTAssertTrue(Necromancer.Apps.checkVersion(with: "1.0.0.0", appStoreVersion: "1.0.0.1") == .revision)
+        
+        XCTAssertTrue(Necromancer.Apps.checkVersion(with: "2.0.0", appStoreVersion: "1.0.0") == .unknown)
+        XCTAssertTrue(Necromancer.Apps.checkVersion(with: "1.1.0", appStoreVersion: "1.0.0") == .unknown)
+        XCTAssertTrue(Necromancer.Apps.checkVersion(with: "1.0.1", appStoreVersion: "1.0.0") == .unknown)
+
     }
+    
     
 }
