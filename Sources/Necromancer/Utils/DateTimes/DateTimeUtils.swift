@@ -115,4 +115,41 @@ public class DateTimeUtils {
         formatter.dateFormat = format.format
         return formatter.string(from: date)
     }
+    
+    /**
+     
+     - Description
+     Strip time of date
+    
+     ex.  07/08/2020 18:00:00 GMT+7 -> 07/08/2020 00:00:00 GMT+7
+     
+     - Parameters:
+        - date: Date Object input
+        - locale: locale of string date input, default is Locale.current
+        - timeZone: time zone of string date input, default is TimeZone.current
+     
+     - Returns:
+        - Date?: date after strip time
+     
+     - Author:
+     wisanu.pljk
+     */
+    public class func stripTime(with date: Date?,
+                                identifier: Calendar.Identifier = Necromancer.identifier,
+                                timeZone: TimeZone = Necromancer.timeZone) -> Date? {
+        
+        guard let date = date else {
+            return nil
+        }
+        let calendar = Calendar.init(identifier: identifier)
+        let components = calendar.dateComponents([.year, .month, .day], from: date)
+        return  DateTimeUtils.toDate(year: components.year,
+                                     month: components.month,
+                                     day: components.day,
+                                     hour: 0,
+                                     minute: 0,
+                                     second: 0,
+                                     identifier: identifier,
+                                     timeZone: timeZone)
+    }
 }

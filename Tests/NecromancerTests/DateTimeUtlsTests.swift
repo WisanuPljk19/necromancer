@@ -77,6 +77,18 @@ final class DateTimeUtlsTests: XCTestCase {
         XCTAssertTrue(dateCurrentTimeGregorian!.compare(dateCurrentTimeBuddhist!).rawValue == 0, "compare date must valid")
     }
     
+    func testStripTime(){
+        let now = Date()
+        let dateComponent = Necromancer.DateTimes.toDate(year: 2021,
+                                                           month: 1,
+                                                           day: 14,
+                                                           hour: 0,
+                                                           minute: 0,
+                                                           second: 0)
+        
+        XCTAssertTrue(DateTimeUtils.stripTime(with: now) == dateComponent, "compare date must valid")
+    }
+    
     static var allTests = [
         ("testConvertDateToString", testConvertDateToString),
         ("testConvertStringToDate", testConvertStringToDate),
