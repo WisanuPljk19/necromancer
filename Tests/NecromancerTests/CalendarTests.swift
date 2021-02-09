@@ -105,4 +105,26 @@ final class CalendarUtilsTests: XCTestCase {
         XCTAssertTrue(countDayInFeb2019 == 28, "countOfDayInMonth of 2019-02 must be equal 28")
     }
     
+    func testDiffDate(){
+        let toDay = Necromancer.DateTimes.toDate(year: 2020,
+                                                     month: 7,
+                                                     day: 15,
+                                                     hour: 0,
+                                                     minute: 0,
+                                                     second: 0,
+                                                     timeZone: .current)
+        let lastDay = Necromancer.DateTimes.toDate(year: 2020,
+                                                     month: 7,
+                                                     day: 14,
+                                                     hour: 0,
+                                                     minute: 0,
+                                                     second: 0,
+                                                     timeZone: .current)
+        
+        let lastDayDiff = Necromancer.Calendars.diffDate(date: toDay!, day: -1)
+        
+        let diffDay = Necromancer.Calendars.totalDistance(_1st: lastDay!, _2nd: lastDayDiff, resultIn: .day)
+        XCTAssertTrue(diffDay == 0, "diffDay of 2020-07-15 must be equal 0")
+    }
+    
 }

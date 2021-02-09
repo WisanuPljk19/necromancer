@@ -258,4 +258,32 @@ public class CalendarUtils {
         let range = calendar.range(of: .day, in: .month, for: date)!
         return range.count
     }
+    
+    /**
+     
+     - Description
+        Set date by distance
+     
+     - Parameters:
+        - _1st: Date of compare
+        - _2st: Day
+        - _3nd: Month
+        - _4nd: Year
+     
+     - Returns:
+        - Date?: result of calculate
+     
+     - Author:
+     sattra.d
+     */
+    public class func diffDate(date: Date,
+                               day: Int? = 0,
+                               month: Int? = 0,
+                               year: Int? = 0) -> Date {
+        var components = DateComponents()
+        components.day = day
+        components.month = month
+        components.year = year
+        return Calendar.init(identifier: .gregorian).date(byAdding: components, to: date)!
+    }
 }
