@@ -24,7 +24,7 @@ public class ButtonUtils {
      - Author:
      wisanu.pljk
      */
-    public class func changeImage(_ button: UIButton,
+    public class func changeState(_ button: UIButton,
                                   duration: Double = 0.2,
                                   options: UIView.AnimationOptions = .transitionCrossDissolve,
                                   stateChange: UIControl.State){
