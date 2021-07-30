@@ -65,7 +65,7 @@ public class ButtonUtils {
                                   duration: Double = 0.2,
                                   options: UIView.AnimationOptions = .transitionCrossDissolve,
                                   imageChange: UIImage?){
-        UIView.transition(with: uiImageView,
+        UIView.transition(with: button,
                           duration: duration,
                           options: .transitionCrossDissolve,
                           animations: {
