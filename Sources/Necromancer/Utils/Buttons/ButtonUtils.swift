@@ -46,4 +46,31 @@ public class ButtonUtils {
                             }
                           }, completion: nil)
     }
+    
+    /**
+     
+     - Description
+     change image button with animation
+     
+     - Parameters:
+     - button: Button component
+        - duration: Duration of image unit is second
+        - options: Animation option
+        - imageChange: The image you want to change.
+     
+     - Author:
+     wisanu.pljk
+     */
+    public class func changeImage(_ button: UIButton,
+                                  duration: Double = 0.2,
+                                  options: UIView.AnimationOptions = .transitionCrossDissolve,
+                                  imageChange: UIImage?){
+        UIView.transition(with: uiImageView,
+                          duration: duration,
+                          options: .transitionCrossDissolve,
+                          animations: {
+                            button.setImage(imageChange, for: .normal)
+                          },
+                          completion: nil)
+    }
 }
