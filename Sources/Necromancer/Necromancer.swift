@@ -41,4 +41,5 @@ open class Necromancer {
     public typealias Images = ImageUtils
     public typealias Objects = ObjectUtils
     public typealias Strings = StringUtils
+    public typealias Buttons = ButtonUtils
 }
