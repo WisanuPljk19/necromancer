@@ -2,7 +2,7 @@
 //  AppUtils.swift
 //  
 //
-//  Created by Wisanu Paunglumjeak on 24/9/2563 BE.
+//  Created by LordGift Paunglumjeak on 24/9/2563 BE.
 //
 
 import Foundation
