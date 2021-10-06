@@ -27,6 +27,7 @@ public class NetworkActivityLogger {
     
     private init() {
         print("1")
+        print("2")
     }
     
     deinit {
