@@ -26,7 +26,10 @@ public class NetworkActivityLogger {
     private let queue = DispatchQueue(label: "\(NetworkActivityLogger.self) Queue")
     
     private init() {
-        
+        print("1")
+        print("2")
+        print("3")
+        print("4")
     }
     
     deinit {
